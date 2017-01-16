@@ -16,6 +16,13 @@
                  parent: "home",
                 controller: 'zasMotorsController',
                 controllerAs: 'vm'
+            })
+             .state('home.Customer', {
+                url: "/customer",
+                templateUrl: "app/partials/Customer.html",
+                 parent: "home",
+                controller: 'zasMotorsController',
+                controllerAs: 'vm'
             });
 
       });
