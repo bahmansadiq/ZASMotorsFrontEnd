@@ -10,8 +10,9 @@
     /* @ngInject */
     function zasMotorsFactory($http, $q) {
         var service = {
-            getInventories: getInventories,
-            postInventory: postInventory
+            getInventory: getInventory,
+            postInventory: postInventory,
+            getDealer: getDealer
         };
         return service;
 // have to mension CRUD methods for the Inventory//
@@ -19,7 +20,7 @@
 /////////************************///////////////
 /////// get all the inventories 
 /////////************************///////////////
-        function getInventories() {
+        function getInventory() {
 
         	 var defer = $q.defer();
             $http({
@@ -67,6 +68,35 @@
                     });
             return defer.promise;
         }
+
+
+
+// have to mension CRUD methods for dealer//
+
+/////////************************///////////////
+/////// get all the dealers
+/////////************************///////////////
+
+        function getDealer() {
+
+             var defer = $q.defer();
+            $http({
+                    method: 'GET',
+                    url: 'http://localhost:57450/api/Dealers/'
+                })
+                .then(function(response) {
+                        if (typeof response.data === 'object') {
+                            defer.resolve(response.data);
+                        } else {
+                            defer.reject('No data found in file!')
+                        }
+                    },
+                    function(error) {
+                        defer.reject(error + "unable to get all the inventories from the database in factory");
+                    });
+            return defer.promise;
+        }
+//https://maps.googleapis.com/maps/api/geocode/json?address=Winnetka&key=
 
     }
 })();

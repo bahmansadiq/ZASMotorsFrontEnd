@@ -1,5 +1,23 @@
+<div class="container" ng-hide="vm.newInventoryView">
+    <div class="row">
+        
+            <div class="col-md-12 col-sm-offset-1">
+                <div class="navbar-form navbar-right" role="search">
+                    <div class="form-group form-group-sm">
+                        <input type="text" class="form-control"  placeholder="Search...">
+                    </div>
+                </div>
+                <div class="navbar-form navbar-right">
+                    <div class="form-group form-group-sm">
+                    <button type="button" class="btn btn-custom btn-primary btn-sm" ng-click="vm.newInventoryView =!vm.newInventoryView">Add A New Car</button>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</div>
 <pre>{{vm.allInventories}}</pre>
-<div class="container">
+<div class="container" ng-show="vm.newInventoryView">
     <!-- Quote Calculator -->
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
@@ -75,7 +93,7 @@
                             <label>Notes</label>
                             <textarea class="form-control input-sm" rows="3" ng-model="vm.vehicleNotes"></textarea>
                         </div>
-                         <button type="submit" class="btn btn-primary" ng-click="vm.addInventory()">Add Car</button>
+                         <button type="submit" class="btn btn-primary" ng-click="vm.addInventory(); vm.newInventoryView =!vm.newInventoryView">Submit</button>
 
 					</div>
 				</div> 

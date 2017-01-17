@@ -5,22 +5,27 @@
         .module('app')
         .controller('zasMotorsController', zasMotorsController);
 
-    zasMotorsController.$inject = ['zasMotorsFactory', 'toastr'];
+    zasMotorsController.$inject = ['zasMotorsFactory', 'toastr','$scope'];
 
     /* @ngInject */
-    function zasMotorsController(zasMotorsFactory, toastr) {
+    function zasMotorsController(zasMotorsFactory, toastr, $scope) {
         var vm = this;
         vm.title = 'zasMotorsController';
-        vm.findInventories=findInventories;
-        vm.allInventories=[];
+        vm.findInventory=findInventory;
         vm.addInventory=addInventory;
+        vm.findDealer=findDealer;
+        vm.initMap=initMap;
+        vm.allInventories=[];
+        vm.allDealers=[];
 
         activate();
 
         ////////////////
 
         function activate() {
-        	findInventories();
+        	findInventory();
+            findDealer();
+            initMap();
 
         }
 // have to mension CRUD methods for the Inventory//
@@ -28,8 +33,8 @@
 /////////************************///////////////
 /////// find all the Inventories 
 /////////************************///////////////
-       function findInventories(){
-            zasMotorsFactory.getInventories()
+       function findInventory(){
+            zasMotorsFactory.getInventory()
                 .then(function(response) {
 
                         vm.allInventories = response;
@@ -75,7 +80,29 @@
                         });
             }
 
+            // have to mension CRUD methods for the dealers//
+
+/////////************************///////////////
+/////// find all the Inventories 
+/////////************************///////////////
+       function findDealer(){
+            zasMotorsFactory.getDealer()
+                .then(function(response) {
+
+                        vm.allDealers = response;
+                        return vm.allDealers;
+                    },
+                    function(error) {
+                        toastr.error(error + "Unable to load the all the dealers from the factory to the controller!");
+                    });
         }
 
+ function initMap(){
+              vm.map = new google.maps.Map(), {
+              center: {lat: 32.70922, lng: -117.17007},
+              zoom: 12
+               };
+             }
+}
     
 })();

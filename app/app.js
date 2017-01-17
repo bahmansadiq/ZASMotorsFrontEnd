@@ -23,6 +23,13 @@
                  parent: "home",
                 controller: 'zasMotorsController',
                 controllerAs: 'vm'
+            })
+              .state('home.Direction', {
+                url: "/Direction",
+                templateUrl: "app/partials/Direction.html",
+                 parent: "home",
+                controller: 'zasMotorsController',
+                controllerAs: 'vm'
             });
 
       });
