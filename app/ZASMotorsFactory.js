@@ -17,7 +17,7 @@
 // have to mension CRUD methods for the Inventory//
 
 /////////************************///////////////
-/////// get all the Inventories 
+/////// get all the inventories 
 /////////************************///////////////
         function getInventories() {
 
@@ -34,13 +34,13 @@
                         }
                     },
                     function(error) {
-                        defer.reject(error + "unable to get the Inventories from the database in factory");
+                        defer.reject(error + "unable to get all the inventories from the database in factory");
                     });
             return defer.promise;
         }
 
 /////////************************///////////////
-/////// post a new Inventories 
+/////// post a new inventory
 /////////************************///////////////
 
         function postInventory(newInventory) {
@@ -58,7 +58,7 @@
                         if (typeof response.data === 'object') {
                             defer.resolve(response);
                         } else {
-                            defer.reject('Not able to post the new Inventory to the Database!')
+                            defer.reject('Not able to post the new inventory to the Database!')
                         }
                     },
                     function(error) {

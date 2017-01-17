@@ -36,7 +36,7 @@
                         return vm.allInventories;
                     },
                     function(error) {
-                        console.log(error + "Unable to load the allInventories from the factory to the controller!");
+                        toastr.error(error + "Unable to load the all the inventories from the factory to the controller!");
                     });
         }
 /////////************************///////////////
@@ -66,11 +66,11 @@
                 zasMotorsFactory.postInventory(inventoryInfo)
                     .then(function(response) {
 
-                            toastr.success("Successfully added " + inventoryInfo + "  "  + " to the  CXXQwxqa3WAInventoriesE33HGV CVVBV  list!");
+                            toastr.success("Successfully added to the  list!");
                             return response;
                         },
                         function(error) {
-                            console.log(error + "Unable to passed the new customer infromation from Cotnroller to TeamPhunFactory!");
+                            toastr.error(error + "Unable to passed the new customer infromation from Cotnroller to ZasMotorFactory!");
                             return error;
                         });
             }
