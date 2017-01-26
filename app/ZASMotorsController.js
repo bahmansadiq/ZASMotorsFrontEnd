@@ -14,7 +14,6 @@
         vm.findInventory=findInventory;
         vm.addInventory=addInventory;
         vm.findDealer=findDealer;
-        vm.initMap=initMap;
         vm.allInventories=[];
         vm.allDealers=[];
 
@@ -25,7 +24,6 @@
         function activate() {
         	findInventory();
             findDealer();
-            initMap();
 
         }
 // have to mension CRUD methods for the Inventory//
@@ -64,8 +62,9 @@
 					transmission:vm.transmission,
 					fuelType:vm.fuelType,
 					mpg:vm.mpg,
-					vehicleOptions:vm.vehicleOptions,
-					vehicleNotes:vm.vehicleOptions
+                    vehicleNotes: vm.vehicleNotes,
+					vehicleOptions: vm.vehicleOptions
+					
             };
 
                 zasMotorsFactory.postInventory(inventoryInfo)
@@ -97,12 +96,6 @@
                     });
         }
 
- function initMap(){
-              vm.map = new google.maps.Map(), {
-              center: {lat: 32.70922, lng: -117.17007},
-              zoom: 12
-               };
-             }
 }
     
 })();

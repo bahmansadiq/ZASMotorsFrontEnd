@@ -1,14 +1,14 @@
 <div class="container" ng-hide="vm.newInventoryView">
     <div class="row">
         
-            <div class="col-md-12 col-sm-offset-1">
+            <div class="col-md-12">
                 <div class="navbar-form navbar-right" role="search">
-                    <div class="form-group form-group-sm">
+                    <div class="form-group form-group-sm col-sm-offset-4">
                         <input type="text" class="form-control"  placeholder="Search...">
                     </div>
                 </div>
                 <div class="navbar-form navbar-right">
-                    <div class="form-group form-group-sm">
+                    <div class="form-group form-group-sm col-sm-offset-9">
                     <button type="button" class="btn btn-custom btn-primary btn-sm" ng-click="vm.newInventoryView =!vm.newInventoryView">Add A New Car</button>
                     </div>
                 </div>
@@ -91,9 +91,18 @@
                         
                         <div class="form-group form-group-sm">
                             <label>Notes</label>
-                            <textarea class="form-control input-sm" rows="3" ng-model="vm.vehicleNotes"></textarea>
+                            <textarea class="form-control input-sm" ng-model="vm.vehicleNotes"></textarea>
                         </div>
-                         <button type="submit" class="btn btn-primary" ng-click="vm.addInventory(); vm.newInventoryView =!vm.newInventoryView">Submit</button>
+
+                         <div class="form-group form-group-sm ">
+                                <label>Upload Image</label>
+                                <div class="input-group">
+                                        <span class="btn btn-file">
+                                            <input type="file">
+                                        </span>
+                                </div>
+                        </div>
+                         <button type="submit" class="btn btn-primary"  ng-click="vm.addInventory(); vm.newInventoryView =!vm.newInventoryView">Submit</button>
 
 					</div>
 				</div> 
