@@ -5,10 +5,10 @@
         .module('app')
         .controller('zasMotorsController', zasMotorsController);
 
-    zasMotorsController.$inject = ['zasMotorsFactory', 'toastr','$scope'];
+    zasMotorsController.$inject = ['zasMotorsFactory', 'toastr','$state','$scope'];
 
     /* @ngInject */
-    function zasMotorsController(zasMotorsFactory, toastr, $scope) {
+    function zasMotorsController(zasMotorsFactory, toastr, $state, $scope) {
         var vm = this;
         vm.title = 'zasMotorsController';
         vm.findInventory=findInventory;
@@ -71,12 +71,14 @@
                     .then(function(response) {
 
                             toastr.success("Successfully added to the  list!");
+                             $state.reload();
                             return response;
                         },
                         function(error) {
                             toastr.error(error + "Unable to passed the new customer infromation from Cotnroller to ZasMotorFactory!");
                             return error;
                         });
+                   
             }
 
             // have to mension CRUD methods for the dealers//

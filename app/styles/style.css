@@ -1,0 +1,31 @@
+#zasTitle {
+	font-size: 2em;
+	color: #cc0000;
+	text-align: center;
+
+}
+.panel > .panel-heading {
+    background-image: none;
+    background-color: black;
+    color: white;
+     border-color : black;
+
+}
+
+.panel-primary {
+     border-color: black;
+}
+
+.btn-primary {
+
+	background: black;
+}
+
+
+.btn-primary:hover {
+    background-color: #2d2828;
+
+}
+.btn-primary:link {
+    color: red;
+}

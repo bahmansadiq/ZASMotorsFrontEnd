@@ -9,17 +9,20 @@
             .state('home', {
                 url: "/home",
                 templateUrl: "app/partials/Home.html",
-            })
-            .state('home.inventory', {
-                url: "/inventory",
-                templateUrl: "app/partials/Inventory.html",
-                 parent: "home",
                 controller: 'zasMotorsController',
                 controllerAs: 'vm'
             })
-             .state('home.customer', {
-                url: "/customer",
-                templateUrl: "app/partials/Customer.html",
+             .state('home.dealer', {
+                url: "/dealer",
+                templateUrl: "app/partials/Dealer.html",
+                 parent: "home",
+                controller: 'zasMotorsController',
+                controllerAs: 'vm'
+                })
+
+            .state('home.inventory', {
+                url: "/inventory",
+                templateUrl: "app/partials/Inventory.html",
                  parent: "home",
                 controller: 'zasMotorsController',
                 controllerAs: 'vm'
