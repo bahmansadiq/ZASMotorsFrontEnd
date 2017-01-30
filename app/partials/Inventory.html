@@ -17,6 +17,19 @@
     </div>
 </div>
 <pre>{{vm.allInventories}}</pre>
+
+<table>
+    <tr>
+        <th>  Make </th>
+        <th> model </tr>
+    </tr>
+    <tr ng-repeat="inventory in vm.allInventories">
+        <td>{{inventory.make}}</td>
+        <td>{{inventory.model}}</td>
+    </tr>
+
+
+</table>
 <div class="container" ng-show="vm.newInventoryView">
     <!-- Quote Calculator -->
     <div class="row">
