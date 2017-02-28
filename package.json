@@ -1,20 +1,13 @@
 {
-  "name": "useradmin",
+  "name": "ZAS Motors",
   "version": "1.0.0",
   "description": "ZAS Motors",
   "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bahmansadiq/ZASMotors.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/bahmansadiq/ZASMotors/issues"
-  },
+  "author": "bahman Sadiq",
   "homepage": "https://github.com/bahmansadiq/ZASMotors#readme",
   "dependencies": {
     "bootstrap-slider": "^9.5.3",
@@ -24,6 +17,7 @@
     "gulp-livereload": "^3.8.1",
     "gulp-open": "^2.0.0",
     "gulp-util": "^3.0.7",
+    "passport": "^0.3.2",
     "lodash": "^4.17.2",
     "ng-file-upload": "^12.2.13",
     "socket.io": "^1.6.0",

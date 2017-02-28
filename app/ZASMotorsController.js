@@ -5,7 +5,7 @@
         .module('app')
         .controller('zasMotorsController', zasMotorsController);
 
-    zasMotorsController.$inject = ['zasMotorsFactory', 'toastr','$state','$scope'];
+    zasMotorsController.$inject = ['zasMotorsFactory', 'toastr','$state','$scope','ngFileUpload'];
 
     /* @ngInject */
     function zasMotorsController(zasMotorsFactory, toastr, $state, $scope) {
@@ -26,6 +26,20 @@
             findDealer();
 
         }
+
+$scope.uploadFiles = function(file, errFiles) {
+    $scope.f = file;
+    $scope.errFile = errFiles && errFiles[0];
+    if (file) {
+        file.upload = Upload.upload({
+            url: 'http://localhost:57450/api/image/',
+            data: {file: file}
+        });
+
+        //put promise and event watchers here if wanted
+    }   
+};
+
 // have to mension CRUD methods for the Inventory//
 
 /////////************************///////////////

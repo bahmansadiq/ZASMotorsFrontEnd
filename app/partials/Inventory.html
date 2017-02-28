@@ -106,15 +106,14 @@
                             <label>Notes</label>
                             <textarea class="form-control input-sm" ng-model="vm.vehicleNotes"></textarea>
                         </div>
+<!--///////////////////////////////////
+/////////////////////////////////// -->
 
-                         <div class="form-group form-group-sm ">
-                                <label>Upload Image</label>
-                                <div class="input-group">
-                                        <span class="btn btn-file">
-                                            <input type="file">
-                                        </span>
-                                </div>
-                        </div>
+<form >
+    <div style="margin-bottom: 15px;">
+        <button type="file" name="file" id="file" ngf-select="uploadFiles($file, $invalidFiles)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">Select File</button>
+    </div>
+</form>
                          <button type="submit" class="btn btn-primary"  ng-click="vm.addInventory(); vm.newInventoryView =!vm.newInventoryView">Submit</button>
 
 					</div>
