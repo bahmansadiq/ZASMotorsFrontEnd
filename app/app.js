@@ -35,6 +35,13 @@
                 controller: 'zasMotorsController',
                 controllerAs: 'vm'
             })
+             .state('home.login', {
+                url: "/login",
+                templateUrl: "app/partials/Login.html",
+                 parent: "home",
+                controller: 'zasMotorsController',
+                controllerAs: 'vm'
+              }) 
               .state('home.direction', {
                 url: "/direction",
                 templateUrl: "app/partials/Direction.html",

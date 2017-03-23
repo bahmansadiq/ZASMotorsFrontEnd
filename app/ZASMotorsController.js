@@ -5,7 +5,7 @@
         .module('app')
         .controller('zasMotorsController', zasMotorsController);
 
-    zasMotorsController.$inject = ['zasMotorsFactory', 'toastr','$state','$scope','ngFileUpload'];
+    zasMotorsController.$inject = ['zasMotorsFactory', 'toastr','$state','$scope'];
 
     /* @ngInject */
     function zasMotorsController(zasMotorsFactory, toastr, $state, $scope) {
@@ -26,7 +26,10 @@
             findDealer();
 
         }
+/*modal starts*/
 
+
+/*modal ends*/
 $scope.uploadFiles = function(file, errFiles) {
     $scope.f = file;
     $scope.errFile = errFiles && errFiles[0];
