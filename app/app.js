@@ -1,9 +1,19 @@
 (function() {
     'use strict';
 
-        angular.module('app', ['ui.router','toastr'])
-       .config(function($stateProvider, $urlRouterProvider){
-
+        angular.module('app', [
+         'ui.router',
+         'toastr',
+         'LocalStorageModule',
+         'ngIdle'
+         //,'ngFileUpload'
+         ])
+        .value ('DealerAPIBaseURL', 'http://localhost:57450/api/')
+       .config(function($stateProvider,
+                        $urlRouterProvider,
+                        localStorageServiceProvider
+                        ){
+         // Local storage config
             $urlRouterProvider.otherwise("/home");
             $stateProvider   
             .state('home', {
@@ -39,8 +49,8 @@
                 url: "/login",
                 templateUrl: "app/partials/Login.html",
                  parent: "home",
-                controller: 'zasMotorsController',
-                controllerAs: 'vm'
+                controller: 'AuthController',
+                controllerAs: 'auth'
               }) 
               .state('home.direction', {
                 url: "/direction",
