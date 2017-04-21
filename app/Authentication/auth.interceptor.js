@@ -20,11 +20,11 @@
         function request(httpRequest) {
             // httpRequest.headers = httpRequest.headers || {};
 
-            // var authData = localStorageService.get('token');
+             var authData = localStorageService.get('token');
 
-            // if(authData) {
-            //     httpRequest.headers.Authorization = 'Bearer ' + authData;
-            // }
+             if(authData) {
+                 httpRequest.headers.Authorization = authData;
+             }
 
             return httpRequest;
         }

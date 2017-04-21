@@ -26,7 +26,9 @@
 
    						
         }
+////////////////////////////////////////////        
 // Dearler account registeration starts here//////
+////////////////////////////////////////////
    function register() {
          var newDealer = {
                     email: auth.email,
@@ -44,21 +46,27 @@
                     console.log("see what is coming" +response);
                      var message=response.data.message;
                      setStorage('token', response.data.token);
-                    toastr.error(message);
+                     var isRegistered= response.data.success;
+                     if(isRegistered){
+                        setTimeout(function(){
+                              toastr.success(response.data.success);
+                            }, 10);
                         auth.email='';
                         auth.password='';
                         auth.firstName='';
                         auth.lastName='';
                         auth.role='';
+                        location.reload();
+                     }
+                     else
+                    toastr.error(message);
                        // location.reload();
                 })
 
         }
+////////////////////////////////////////////
 ////Dealer registeration ends here//////////
-
-
-
-
+////////////////////////////////////////////
 
         function login() {
          var dealerInfo = {
@@ -68,15 +76,23 @@
         	AuthFactory.dealerAuth(dealerInfo).then 
             (function(response) {
 
-        			console.log(response.data+ "username and password successfully passed from controller");
+        			console.log(response.data+ " username and password successfully passed from controller");
         			setStorage('token', response.data);
-/*        			setStorage('email', response.email);
-        			setStorage('userId', response.userId);
+        			setStorage('email', response.data.email);
+/*        			setStorage('userId', response.userId);
         			setStorage('roles',response.roles);
 */
         		//	$state.go('home.dealer');
+                var isLoggedIn=response.data.success;
+                if(isLoggedIn){
+                toastr.success("Successfully loged in");
+                $state.go('home.dealer');
+                  }
+                else
 
-        		//	return response;
+                toastr.error(response.data.message);
+
+        			return response;
 
         		},
 
@@ -93,7 +109,7 @@
         	 //localStorage.setItem(key,value);
             // localStorageService.set(key, value);
         		console.log("successfully setstorage in the aut controller!");
-                $state.go('home.dealer');
+
         		return;
         }
        

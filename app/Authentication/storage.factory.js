@@ -16,11 +16,12 @@
         return service;
 
         ////////////////
+// stores an object with key value(token) in local storage.
 
         function setLocalStorage(key, value) {
         	return  localStorageService.set(key, value);
         }
-
+// get the stored token from local storage.
         function getLocalStorage(key){
         	return localStorageService.get(key);
 
