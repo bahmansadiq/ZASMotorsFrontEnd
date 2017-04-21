@@ -18,7 +18,7 @@
         ////////////////
 
         function setLocalStorage(key, value) {
-        	  localStorageService.set(key, value);
+        	return  localStorageService.set(key, value);
         }
 
         function getLocalStorage(key){

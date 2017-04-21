@@ -69,7 +69,7 @@
             (function(response) {
 
         			console.log(response.data+ "username and password successfully passed from controller");
-        			setStorage('token', response.data.token);
+        			setStorage('token', response.data);
 /*        			setStorage('email', response.email);
         			setStorage('userId', response.userId);
         			setStorage('roles',response.roles);
@@ -89,10 +89,11 @@
         }
 
         function setStorage(key, value){
-        	//storageFactory.setLocalStorage(key, value);
+        	storageFactory.setLocalStorage(key, value);
         	 //localStorage.setItem(key,value);
-             localStorageService.set(key, value);
+            // localStorageService.set(key, value);
         		console.log("successfully setstorage in the aut controller!");
+                $state.go('home.dealer');
         		return;
         }
        
