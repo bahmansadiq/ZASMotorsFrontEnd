@@ -26,10 +26,19 @@
             findDealer();
 
         }
-/*modal starts*/
+/*scroll navbar starts*/
 
-
-/*modal ends*/
+var mn=$(".main-nav");
+$(window).scroll(function(){
+    if($(this).scrollTop() > 250){
+      mn.addClass("main-nav-scrolled");    
+      console.log("nav bar is scrolled");
+    }
+    else{
+        mn.removeClass("main-nav-scrolled");
+    }
+});
+/*scroll navbar ends*/
 $scope.uploadFiles = function(file, errFiles) {
     $scope.f = file;
     $scope.errFile = errFiles && errFiles[0];
