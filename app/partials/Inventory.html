@@ -107,6 +107,10 @@
 
 <form action="/" method="post" enctype="multipart/form-data">
 <input type="file" name="photos"></form>
+<button ng-click="vm.findSpecificFile()"> getSpecificFile</button>
+<dir>
+    {{vm.allFilels}}
+</dir>
 
                          <button type="submit" class="btn btn-primary"  ng-click="vm.addInventory(); vm.newInventoryView =!vm.newInventoryView">Submit</button>
 

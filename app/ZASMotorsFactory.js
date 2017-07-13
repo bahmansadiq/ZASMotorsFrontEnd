@@ -5,14 +5,15 @@
         .module('app')
         .factory('zasMotorsFactory', zasMotorsFactory);
 
-    zasMotorsFactory.$inject = ['$http', '$q'];
+    zasMotorsFactory.$inject = ['$http', '$q','DealerAPIBaseURL'];
 
     /* @ngInject */
-    function zasMotorsFactory($http, $q) {
+    function zasMotorsFactory($http, $q, DealerAPIBaseURL) {
         var service = {
             getInventory: getInventory,
             postInventory: postInventory,
-            getDealer: getDealer
+            getDealer: getDealer,
+            getSpecificFile: getSpecificFile
         };
         return service;
 // have to mension CRUD methods for the Inventory//
@@ -97,5 +98,31 @@
             return defer.promise;
         }
 
+/////////************************///////////////
+/////// get the specific files 
+/////////************************///////////////
+        function getSpecificFile(vin) {
+
+             var defer = $q.defer();
+            $http({
+                    method: 'GET',
+                    url: DealerAPIBaseURL+'getImageByVin/'+vin
+                })
+                .then(function(response) {
+                        if (typeof response.data === 'object') {
+                            defer.resolve(response.data);
+                        } else {
+                            defer.reject('No data found in file!')
+                        }
+                    },
+                    function(error) {
+                        defer.reject(error + "unable to get all the filels from the database in factory");
+                    });
+            return defer.promise;
+        }
+
+/////////************************///////////////
+/////// end getting specif files
+/////////************************///////////////
     }
 })();

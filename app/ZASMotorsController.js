@@ -16,6 +16,8 @@
         vm.findDealer=findDealer;
         vm.allInventories=[];
         vm.allDealers=[];
+        vm.allFiles=[];
+        vm.findSpecificFile=findSpecificFile;
 
         activate();
 
@@ -123,6 +125,24 @@ $scope.uploadFiles = function(file, errFiles) {
                         toastr.error(error + "Unable to load the all the dealers from the factory to the controller!");
                     });
         }
+
+
+
+/////////************************///////////////
+/////// find the specific file 
+/////////************************///////////////
+       function findSpecificFile(){
+            zasMotorsFactory.getSpecificFile("123455")
+                .then(function(response) {
+                        vm.allFiles = response;
+                        return vm.allFiles;
+                    },
+                    function(error) {
+                        toastr.error(error + "Unable to load the all the dealers from the factory to the controller!");
+                    });
+        }
+
+
 
 }
     
